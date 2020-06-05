@@ -26,12 +26,19 @@ class Atm:
         def withdraw(self):
             global available_balance
             withdraw_money = int(input('Enter Amount To Withdraw : '))
-        
-            if withdraw_money <= available_balance:
-                available_balance -= withdraw_money
-                print('retrieve your cash, withdrawal successful')
-            else: 
-                print('insufficient amount in Your Account')
+            i =  int(input(f'are you sure you want to withdraw {withdraw_money} in this account ?: \n1: yes \n2: no \n'))
+            
+            if i == 1:
+                if withdraw_money <= available_balance:
+                    available_balance -= withdraw_money
+                    print('retrieve your cash, withdrawal successful')
+            
+                else: 
+                    print('insufficient amount in Your Account')
+            
+            else:
+                print(f'process for  money withdrawal cancelled')
+            
     except ValueError:
         print('wrong input')
     except TypeError:
